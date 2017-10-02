@@ -1,5 +1,24 @@
 sudo apt-get update
+sudo apt-get update && sudo apt-get dist-upgrade
+sudo apt-get upgrade
 sudo apt-get install vim
+
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/sharkyze/cheatsheets.git
+
+
+
+
+cp -i .vimrc ~
+cp -i .vimrc ~/code/cheatsheets
+
+
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
 
 configure .vimrc
 
@@ -10,18 +29,15 @@ git config --global user.name "Fname Lname"
 git config --global user.email "email@mail.com"
 
 
-echo "# cs-ubuntu" >> README.md
+echo "# cheatsheets" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/sharkyze/cs-ubuntu.git
+git remote add origin https://github.com/sharkyze/cheatsheets.git
 git push -u origin master
 
 …or push an existing repository from the command line
 
-git remote add origin https://github.com/sharkyze/cs-ubuntu.git
+git remote add origin https://github.com/sharkyze/cheatsheets.git
 git push -u origin master
-
-
-
 
