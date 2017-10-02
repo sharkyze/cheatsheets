@@ -3,6 +3,7 @@ sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get upgrade
 sudo apt-get install vim
 
+sudo apt-get purge --auto-remove packagename
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/sharkyze/cheatsheets.git
