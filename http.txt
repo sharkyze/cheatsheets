@@ -1,0 +1,21 @@
+nslookup www.google.com
+traceroute -q 1 www.google.com
+
+
+telnet www.harvard.edu 80
+
+telnet www.harvard.edu 80 > output.txt
+GET / HTTP/1.1
+Host: www.harvard.edu
+
+touch output.txt
+
+
+curl -I www.menuze.io
+
+
+curl -I http://refernece.cs50.net/
+
+
+https encrypts the information between the client and the server as if we were using VPNs so that if we are at starbucks for example the information will stay hidden.
+

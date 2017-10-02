@@ -9,8 +9,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/sharkyze/cheatsheets.git
 
 
-
-
 cp -i .vimrc ~
 cp -i .vimrc ~/code/cheatsheets
 

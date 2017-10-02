@@ -1,0 +1,11 @@
+/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .
+
+echo $PATH
+
+add link to folder already in path: 
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
+
+
+check if it's okay:
+ls -la /usr/local/bin | grep subl
