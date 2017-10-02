@@ -1,0 +1,27 @@
+sudo apt-get update
+sudo apt-get install vim
+
+configure .vimrc
+
+sudo apt-get update
+sudo apt-get install git
+
+git config --global user.name "Fname Lname"
+git config --global user.email "email@mail.com"
+
+
+echo "# cs-ubuntu" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sharkyze/cs-ubuntu.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/sharkyze/cs-ubuntu.git
+git push -u origin master
+
+
+
+
