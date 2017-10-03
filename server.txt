@@ -2,6 +2,7 @@ Now that you've got your server and domain set up, it is time to set up Flask an
 
 First, you'll need to run:
 sudo apt-get install apache2 mysql-client mysql-server
+
 Once you do that, you'll get the start up page for MySQL, where you will need to set your root user for MySQL. This is the specific MySQL root user, not your server root user.
 That setup should take about 20-30 seconds. After that, we need to get WSGI, so run the following:
 
@@ -37,6 +38,7 @@ Now we're ready to create the main file for your first Flask App:
 nano __init__.py
 Here is where we have our initialization script for our Flask application. You can actually keep all of your main website code right here for simplicity's sake, and that's what we'll be doing. Within your __init__.py file, you will type:
 
+#! /bin/usr/python
 from flask import Flask
 
 app = Flask(__name__)
@@ -83,7 +85,9 @@ So now we need to set up our Flask configuration file:
 nano /etc/apache2/sites-available/FlaskApp.conf
 This is where your Flask configuration goes, which will apply to your live web site. Here's the code that you need to include:
 
-                
+sudo ifconfig                
+copy public ip address from wlp2s0 under inet address to serverName
+
 <VirtualHost *:80>
                 ServerName yourdomain.com
                 ServerAdmin youemail@email.com
@@ -108,6 +112,7 @@ We are now ready to enable the server.
 Run:
 
 sudo a2ensite FlaskApp
+sudo /etc/init.d/apache2 restart
 service apache2 reload
 Almost there... now we just need to configure our WSGI file. To do this:
 
@@ -122,7 +127,7 @@ logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/FlaskApp/")
 
 from FlaskApp import app as application
-application.secret_key = 'your secret key. If you share your website, do NOT share it with this key.'
+application.secret_key = 'your secret key. #If you share your website, do NOT share it with this key.'
 Save and exit.
 
 Once that is done, run:
@@ -131,3 +136,37 @@ service apache2 restart
 Get used to running the above command. Flask is very finicky about your python file changes. Every .py file change you make to your webapp, you need to run this command.
 
 Once you have done all of this, you are ready to visit your domain name in your browser. You should see the "Hi there, how ya doin?" string that we output in your __init__.py file.
+
+
+
+to configure multiple website on same server:
+
+sudo vim /etc/apache2/site-available/FlaskApp.conf
+
+
+<VirtualHost *:80>
+                ServerName yourdomain.com
+                ServerAdmin youemail@email.com
+                WSGIScriptAlias /testpython /var/www/FlaskApp/flaskapp.wsgi
+                <Directory /var/www/FlaskApp/FlaskApp/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/FlaskApp/FlaskApp/static
+                <Directory /var/www/FlaskApp/FlaskApp/static/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
+:wq to exit out of vim
+
+
+sudo service apache2 reload
+now app will only be working on ip.add.re.ss/tespythonflask
+
