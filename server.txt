@@ -14,6 +14,9 @@ It is probably already enabled from the installation, but it is a good idea to m
 
 Next we are ready to set up our Flask environment.
 
+in case we need to reboot:
+sudo reboot
+
 Run:
 
 cd /var/www/
@@ -85,7 +88,7 @@ So now we need to set up our Flask configuration file:
 nano /etc/apache2/sites-available/FlaskApp.conf
 This is where your Flask configuration goes, which will apply to your live web site. Here's the code that you need to include:
 
-sudo ifconfig                
+sudo ifconfig
 copy public ip address from wlp2s0 under inet address to serverName
 
 <VirtualHost *:80>
@@ -187,7 +190,7 @@ It surrounds each sentence with quotes to only find exact matches. If a match is
 from __future__ import division
 import requests, time
 # sudo pip install -U nltk
-from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters 
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 import urllib2
 
 # Try it out on the first lines of Moby Dick:
@@ -217,10 +220,10 @@ This may not scale well as Bing would probably get upset from excessive automate
 
 Amazon Web Services - Home Away from Home
 
-Now that we have our application ready to go, we need the tools to serve it out to the world. We’ll start with our Amazon Web Service EC2 instance. You will need an AWS account to access the site. 
+Now that we have our application ready to go, we need the tools to serve it out to the world. We’ll start with our Amazon Web Service EC2 instance. You will need an AWS account to access the site.
 
-AWS Console 
-First, log into the AWS console: 
+AWS Console
+First, log into the AWS console:
 
 
 logging_on_AWS
@@ -229,7 +232,7 @@ logging_on_AWS
 
 
 VPC
-Select VPC: 
+Select VPC:
 
 
 choosing_vpc
@@ -238,7 +241,7 @@ choosing_vpc
 
 A virtual private cloud (VPC) will determine who and what gets to access the site. We will use the wizard and content ourselves with only on VPC. In an enterprise-level application, you will want at least 4, 2 to be private and run your database, and two to be public and hold your web-serving application. By duplicating the private and public VPCs you can benefit from fail-over and load balancing tools. By keeping things simple, we’ll get our instance working in just a few clicks, seriously!
 
-Start the wizard: 
+Start the wizard:
 
 
 vpc_wizard
@@ -246,7 +249,7 @@ vpc_wizard
 
 
 
-Start the wizard and select ‘VPC with a Single Public Subnet’: 
+Start the wizard and select ‘VPC with a Single Public Subnet’:
 
 
 vpc_wizard_2
@@ -254,7 +257,7 @@ vpc_wizard_2
 
 
 
-Most of the defaults are fine except you should add a name under VPC name and under Add endpoints for S3 to you subnets select Public subnet: 
+Most of the defaults are fine except you should add a name under VPC name and under Add endpoints for S3 to you subnets select Public subnet:
 
 
 vpc_wizard_3
@@ -275,7 +278,7 @@ EC2
 
 
 
-In Create Instance, select Launch Instance: 
+In Create Instance, select Launch Instance:
 
 
 EC2_create_instance
@@ -283,7 +286,7 @@ EC2_create_instance
 
 
 
-Select the free eligible tier Ubuntu box (may not always be free, check if it applies to you): 
+Select the free eligible tier Ubuntu box (may not always be free, check if it applies to you):
 
 
 ec2_ubuntu
@@ -291,7 +294,7 @@ ec2_ubuntu
 
 
 
-Go with defaults and click Next: Configure Instance Details 
+Go with defaults and click Next: Configure Instance Details
 
 
 ubuntu_defaults
@@ -299,7 +302,7 @@ ubuntu_defaults
 
 
 
-Under Step 3, make sure to enable ‘Auto-assign IP’ and leave the rest as is. Click Review and Launch 
+Under Step 3, make sure to enable ‘Auto-assign IP’ and leave the rest as is. Click Review and Launch
 
 
 enable_public_ip
@@ -307,7 +310,7 @@ enable_public_ip
 
 
 
-And in Step 7 add a new rule to the security group. Click Edit security groups and click Add Rule and choose HTTP on port 80, this will allow for Internet traffic: 
+And in Step 7 add a new rule to the security group. Click Edit security groups and click Add Rule and choose HTTP on port 80, this will allow for Internet traffic:
 
 
 step2_ec2
@@ -315,7 +318,7 @@ step2_ec2
 
 
 
-It should look like the following: 
+It should look like the following:
 
 
 http_ec2
@@ -323,7 +326,7 @@ http_ec2
 
 
 
-Once added, select Review and Launch. We have one more step before reaching the instance - we need create a new key pair. Click Launch to get there. Key-pair is a security file that will live on your machine and is required to ‘SSH’ into the instance. I tend to create them and leave them in my downloads. What ever you decided to do, make sure you know where it is as you’ll need to pass a path to it every time you want to connect to it. 
+Once added, select Review and Launch. We have one more step before reaching the instance - we need create a new key pair. Click Launch to get there. Key-pair is a security file that will live on your machine and is required to ‘SSH’ into the instance. I tend to create them and leave them in my downloads. What ever you decided to do, make sure you know where it is as you’ll need to pass a path to it every time you want to connect to it.
 
 
 key_pair
@@ -333,7 +336,7 @@ key_pair
 
 Name it whatever you like and hit the Download Key Pair. Finally select Launch Instances or View Instances and we’re ready to go! Keep in mind that whenever you instance is running, you may be charged by Amazon - read the documentation to make sure you’re OK with it. Also, stop the instance when you don’t need to slow down the charges, and terminate it when you don’t need it anymore (i.e. delete it) to stop all charges.
 
-Once the instance is initialized and running, you should see a green light by it: 
+Once the instance is initialized and running, you should see a green light by it:
 
 
 running_ec2
@@ -341,7 +344,7 @@ running_ec2
 
 
 
-Select the left check-box on your instance line to access the settings for that instance. It should look something like this: 
+Select the left check-box on your instance line to access the settings for that instance. It should look something like this:
 
 
 instance_ec2
@@ -351,7 +354,7 @@ instance_ec2
 
 
 Connecting to the EC2 Instance
-Select the top Connect button to get the SSH connection string that enables connections. Follow the instructions if you want to use the Java terminal to connect to the instance. Here, I will be using the terminal on my Mac. 
+Select the top Connect button to get the SSH connection string that enables connections. Follow the instructions if you want to use the Java terminal to connect to the instance. Here, I will be using the terminal on my Mac.
 
 
 connection_instructions_ec2
@@ -359,7 +362,7 @@ connection_instructions_ec2
 
 
 
-The last line states your connection string: ssh -i demo.pem ubuntu@52.25.53.41. To use it on the Mac, open your terminal and navigate to your Downloads folder (or wherever you moved your pem key-pair file). 
+The last line states your connection string: ssh -i demo.pem ubuntu@52.25.53.41. To use it on the Mac, open your terminal and navigate to your Downloads folder (or wherever you moved your pem key-pair file).
 
 
 ssh
@@ -369,7 +372,7 @@ ssh
 
 That is all you need to access the instance. If you are having issues with it, follow Amazon’s advice and set the correct permissions for you pem file by calling chmod 400 demo.pem. Also, keep in mind, anytime you reboot your instance, your connection IP will be different.
 
-Once you get in, you should see something along these lines: 
+Once you get in, you should see something along these lines:
 
 
 ssh_successful_connection
@@ -440,7 +443,7 @@ and paste the following with your OWN ServerName IP address (i.e. replace 52.25.
 
 <VirtualHost *:80>
     ServerName 52.25.54.241
-    ServerAdmin admin@mywebsite.com 
+    ServerAdmin admin@mywebsite.com
     WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi
     <Directory /var/www/FlaskApps/PlagiarismDefenderApp/>
         Order allow,deny
@@ -482,7 +485,7 @@ application.secret_key = "somesecretsessionkey"
 Save and exit (ctrl-X). Restart Apache:
 
 sudo service apache2 restart
-/etc/init.d/apache2 reload 
+/etc/init.d/apache2 reload
 Try running this again in the browser - hopefully you should see something like:
 
 
@@ -624,15 +627,15 @@ and enter the following for plagiarizer-results.html:
 Save and exit (ctrl-X). Restart Apache:
 
 sudo service apache2 restart
-/etc/init.d/apache2 reload 
-Try it out - enter some text and hit the submit button: 
+/etc/init.d/apache2 reload
+Try it out - enter some text and hit the submit button:
 
 defender-in-action
 
 
 
 
-And the final prognostic is: 
+And the final prognostic is:
 
 
 defender-results
@@ -690,7 +693,7 @@ The most important change is on the fourth line where we added a live link to th
 
 You can get the latest bootstrap link at the GetBootstrap.com
 
-Here is a peek at our beautifully metamorphosed page: 
+Here is a peek at our beautifully metamorphosed page:
 
 
 defender-beautified
