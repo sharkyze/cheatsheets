@@ -1,0 +1,16 @@
+mysql --user=root -p
+enter password
+
+ SHOW DATABASES;
+
+ CREATE DATABASE databasename;
+
+ USE databasename;
+ SHOW TABLES;
+
+ CREATE TABLE users (uid INT(11) AUTO_INCREMENT PRIMARY KEY, user VARCHAR(20), password VARCHAR(100), email VARCHAR(20), settings VARCHAR(32500), tracking VARCHAR(32500), T(3));
+
+ DESCRIBE users;
+
+ SELECT * FROM users;
+

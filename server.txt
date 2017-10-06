@@ -174,7 +174,7 @@ sudo service apache2 reload
 now app will only be working on ip.add.re.ss/tespythonflask
 
 
-
+sudo apt-get install python-MySQLdb
 
 
 ***********************************************************************************
