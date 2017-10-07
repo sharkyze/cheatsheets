@@ -1,0 +1,22 @@
+gcloud config configurations lisr
+
+Creating a configuration
+gcloud config configurations create [NAME]
+
+Setting configuration proporeties
+gcloud config set project [PROJECT]
+gcloud config uset disable_usage_reporting
+
+Viewing configuration properties
+gcloud config configurations describe [NAME]
+gcloud config list
+
+
+Activating a configuration
+gcloud config configurations activate [NAME]
+
+
+Deleting a configuration
+gcloud config configurations delete [NAME]
+
+
