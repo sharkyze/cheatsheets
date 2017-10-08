@@ -1,0 +1,75 @@
+h j k l : to move up / down / left / right
+
+crtl + E: scroll the window down
+ctrl + Y: scroll the window up
+ctrl + F: scroll down one page
+ctrl + B: scroll up of page
+
+shft + h: move cursor to the top of the window
+shft + m: move cursor to the middle of the window
+shft + l: move cursor to the end of the window
+
+gg: go the top of file
+shft + gg: go the end of file
+
+The secret sauce of vim:
+-> text objects and motions
+-> the DOT command
+-> macros
+
+
+-> Text objects and motions:
+Think of a file as more than individual characters
+Text:
+    w : words
+    s : sentences
+    p : paragraphs
+    t : tags : only in XML/HTML
+    e : end
+
+Motions:
+    a : all
+    i : in
+    t : 'till
+    f : find forward
+    F : find backward
+
+Commands:
+    d : delete (also cut)
+    c : change (delete, then place in insert mode)
+    y : yank (copy)
+    v : visually select
+
+
+ {command}{text object or motion}:
+ diw : delete in word
+ caw : change all word
+ ya) : delete all text inside parantheses
+ dtspace
+ dfspace
+
+. repeats last command
+If inside of a colon, ci' new text : will replace all text inside colons with new text
+then . wil repeat same command elsewhere
+dd/yy : delet/yank the current line
+p : will paste this line
+^ / $ move to the beginning / end of line
+I / A - move to the beginning / end of line and insert
+o / O - insert new line above / below current line and insert
+
+Plugins:
+    vundle : plugin manager
+    nertree : file drawer
+    ctrlp : fuzzy file finder
+    fugitive : git tool
+    syntastic : syntax checker / linter
+
+
+
+tmux: Terminal multiplexer
+
+
+
+
+
+
