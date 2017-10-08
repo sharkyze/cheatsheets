@@ -1,0 +1,76 @@
+Start new: tmux
+tmux prefix : ctrl+b
+
+exit to exit out of session
+
+Attach, Detach & kill:
+Detach:
+    ctrl+b d
+
+After detaching the session isn't killed. to get back:
+    tmux ls
+    tmux attach-session -t 0
+
+    or to go to last created session:
+        tmux a #
+
+
+start new with session name:
+    tmux new -s [session name]
+
+
+
+kill session:
+    tmux kill-session -t [session name]
+
+
+
+Naming sessions:
+    tmux a -t [name of session]
+     # a replaces attach-session
+
+
+Managing panes:
+    To split pane horizontally:
+        ctrl+b "
+
+   To split pane vertically:
+        ctrl+b %
+
+
+   To move from pane to pane, simply use the prefix followed by arrow key:
+        ctrl+b [arrow key]
+
+
+   Reszing panes:
+        ctrl+b :
+        from there we can type resize-pane followed by a direction flag -U for -U, -D, -L, -R
+        ctrl+b :
+        resize-pane -D 2
+
+
+Windows:
+    c : create window
+    w : list windows
+    n : next window
+    p : previous window
+    f : find window
+    , : name window
+    & : kill window
+
+
+
+Panes (splits):
+    % :  vertical split
+    " :  horizontal split
+
+    o : swap panes
+    q : show pane numbers
+    x : kill pane
+    + : break pane into window (e.g. to select text by mouse to copy)
+    - : restore pane from window
+    space : toggle between layout
+    <prefix> q (show panes numbers, when the numbers show up type the key to goto that pane)
+    <prefix> { (Move the current pane left)
+    <prefix> } (Move the current pane right)
+    <prefix> z toggle pane zoom
