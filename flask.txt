@@ -27,6 +27,13 @@ from app import app
 app.run(debug=True)
 
 
+Carefull with the shebang when using conda env:
+The python used by an activated conda environment is ${CONDA_PREFIX}/bin/python and not /usr/bin/python
+
+see : https://stackoverflow.com/questions/41914739/how-do-i-activate-a-conda-env-in-a-subshell
+
+
+
 To indicate that the run script is an executable:
     chmod a+x run.py
 

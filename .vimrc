@@ -18,6 +18,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'hdima/python-syntax'
 Plugin 'scrooloose/nerdtree'
+Plugin 'davidhalter/jedi-vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,3 +65,5 @@ syntax on
 
 com! PrettyJson %!python -m json.tool
 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
