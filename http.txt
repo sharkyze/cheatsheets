@@ -2,6 +2,12 @@ nslookup www.google.com
 traceroute -q 1 www.google.com
 
 
+list the table between mac adresses and ip adresses
+arp -a
+
+
+ipconfig /display dns
+
 telnet www.harvard.edu 80
 
 telnet www.harvard.edu 80 > output.txt
