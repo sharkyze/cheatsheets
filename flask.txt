@@ -40,3 +40,12 @@ To indicate that the run script is an executable:
 
 To run it:
     ./run.py
+
+
+
+to generae a secret key:
+>>> import os
+>>> os.urandom(24)
+
+
+
