@@ -100,9 +100,54 @@ git push origin master
 git remote -v
 
 
+Common git workflow
+======
+# Create a branch to start working on a new feature
+```
+git branch new-feature
+git branch
+git checkout new-feature
+git branch
+```
 
-#git-ftp
 
+# After commit push branch to remote repo
+```
+git push -u origin new-feature
+
+git branch -a  # To see all branches
+
+```
+
+
+
+#Merge a branch
+### In most casd the merge will be done on remote after code review and unit tests
+```
+git checkout master
+git pull origin master  # Always pull master in case any changes were made while working on new feature
+git branch --merged  # get a list of all branches that have been merged in so far
+git merge new-feature
+git push origin master
+```
+
+
+### After the merge has been complete, now the branch is ready to be deleted
+```
+git branch --merged
+git branch -d new-feature
+git branch -a
+git push origin --delete new-feature
+git branch -a  # to check if delete is successful 
+```
+
+
+
+# 
+
+
+git-ftp
+======
 
 sudo apt-get install git-ftp
 brew install git-ftp
