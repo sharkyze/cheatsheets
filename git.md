@@ -143,6 +143,75 @@ git branch -a  # to check if delete is successful
 
 
  
+Fixing mistakes
+========
+## Correcting commit message
+```
+git commit --amend -m "new message to replace the old one"
+git log
+```
+
+Git amend Will change the hash and the git history (not a bad thing if only person working on the project)
+
+
+## If a commit has been already made but you want to add a new file to the commit
+#### for example a gitignire file
+```
+touch gitignore
+git status
+git add.gitignore
+git commit --amend  #This will open an interactive window to edit the commit / You can save and close out of this window by :wq
+git log
+git log --stat  # the gitignore file has been added to the previous commit with a new hash
+```
+
+
+## If a commit was made to a bad branch
+```
+git log  # grab the first six digits of the hash
+git checkout correct-branch  # checkout the correct branch were changes were supposed to be made
+git log
+git cherry-pick ###### # the six digits hash copied earlier
+git log  # now commit is on the correct branch
+git checkout master  # to earase the commit from the master brancb
+git log
+git reset --soft ####  # hash of the commit
+git status  # soft resets uncommit files commited during last commit but puts them back again in the staging area
+git reset ####
+git status  # a files are taken out of the commit and the staging area but the changes are kept to files
+git reset --hard #####
+git status  # will get rid of the changes made to files on disk for all files except for untracked files
+git clean -df  # get rid of untracked files
+git status
+```
+
+
+## If a git reset hard was made to files that we finally decided to keep
+```
+git reflog  # grab the hash of the reset
+git checkout ######
+git log   # changes are back but we are no longer on a branch to keep changes a branch needs to be created
+git branch backup  # to create branch from the detachted state (not on a branch, will be trashed in the future)
+git branch  # We should be on a detached branch
+git checkout master
+git branch
+git checkout backup
+```
+
+
+## If you want to undo commits already pulled by other users:
+##### Not to change history
+```
+git log  # copy the hash of the commit to revert
+git revert  ######
+# modify the edit window, exit and save :wq
+git log
+git diff #### ####  # the two commit made (false and reverted)
+
+
+
+
+
 
 
 git-ftp
