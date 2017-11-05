@@ -2,12 +2,13 @@ git cheatsheet
 =======
 
 ## After Install
+```
 git --version
 
 git config --global user.name "User Name"
 git config --global user.email "user@name.com"
 git config --list
-
+```
 
 ## To get help:
 ```
