@@ -1,0 +1,61 @@
+Conda
+=====
+
+
+```
+conda -V
+conda update conda
+```
+```
+conda create --name my-app flask sqlalchemy
+conda create --name my-app pip
+```
+
+```
+source activate my-app
+source deactivate my-app
+```
+
+```
+pip list
+which python
+```
+
+```
+conda create --name my-app27 python=2.7 flask sqlalchemy
+conda install -n yourenvname [package]
+
+source activate my-app27
+
+source deactivate
+```
+
+```
+conda env list
+
+conda remove --name my-app --all
+conda remove -n yourenvname --all
+```
+
+```
+jupyter notebook
+```
+
+```
+$ conda list -e > req.txt
+then you can install the environment using
+$ conda create -n new environment --file req.txt
+```
+
+
+```
+$ curl http://nodejs.org/dist/node-latest.tar.gz | tar xvz
+$ cd node-v*
+$ ./configure --prefix=$VIRTUAL_ENV
+$ make install
+```
+
+
+npm install -g {package}
+
+https://calvinx.com/2013/07/11/python-virtualenv-with-node-environment-via-nodeenv/
