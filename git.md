@@ -239,3 +239,12 @@ git ftp catchup
 echo "new content" >> index.txt
 git commit index.txt -m "Add new content"
 git ftp push
+````
+
+
+
+Everyday git in twenty commands:
+````
+git help everyday
+````
+
