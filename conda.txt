@@ -39,6 +39,9 @@ then you can install the environment using
 $ conda create -n new environment --file req.txt
 
 
+or:
+pip freez > requirements.txt
+
 
 
 $ curl http://nodejs.org/dist/node-latest.tar.gz | tar xvz
