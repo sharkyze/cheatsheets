@@ -116,3 +116,25 @@ pip freeze > requirements.txt
 python manage.py migrate
 python maange.py createsuperuser
 ````
+
+
+8. Create a django app
+````
+python manage.py startapp appname
+````
+
+
+When an app is first created the first thing we need to remeber is that django:
+1. Handles URLs
+2. Returns responses
+3. Remebers things
+
+First thing we can create a view in the views
+then add the view to the urls
+
+
+* When we add a new app or a new class to models.py:
+````
+python manage.py makemigrations
+python manage.py migrate
+````
