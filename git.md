@@ -48,6 +48,7 @@ git add -A
 ## To remove files from staging area:
 ```
 git reset hello.py  # This will unstage hello.py but will keep gitignore
+git reset HEAD <filename>
 ```
 
 
@@ -81,6 +82,13 @@ git remote -v
 git branch -a  # To list all branches in the repo
 
 ````
+
+## Add a remote repo:
+```
+git remote add <github repo "origin"> https://github.com/user/repo
+````
+
+
 
 
 ## Pushing changes
@@ -205,13 +213,23 @@ git checkout backup
 ```
 git log  # copy the hash of the commit to revert
 git revert  ######
+```
 # modify the edit window, exit and save :wq
 git log
 git diff #### ####  # the two commit made (false and reverted)
 
 
+## Make a file from the repository the working copy
+```
+git checkout -- <filename>
 
+```
 
+## Checkout a file from a previous commit
+```
+git checkout <commit hash> -- <filename>
+git commit -am "undo file change"
+````
 
 
 
