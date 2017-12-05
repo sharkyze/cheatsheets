@@ -118,7 +118,10 @@ git branch
 git checkout new-feature
 git branch
 ```
-
+or
+```
+git checkout -b new-feature
+```
 
 ## After commit push branch to remote repo
 ```
