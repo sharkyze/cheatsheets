@@ -267,5 +267,7 @@ git ftp push
 Everyday git in twenty commands:
 ````
 git help everyday
+gitk
+git lg
 ````
 
