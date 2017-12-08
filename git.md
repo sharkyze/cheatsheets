@@ -153,6 +153,11 @@ git push origin --delete new-feature
 git branch -a  # to check if delete is successful 
 ```
 
+#### Conflict management
+```
+git checkout --theirs <path/to/conflicted file>
+git add <path/to/conflicted flie >  # or git checkout ours
+```
 
  
 Fixing mistakes
