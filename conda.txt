@@ -4,6 +4,7 @@ Conda
 conda -V
 conda update conda
 
+source ~/.bash_profile # if conda not recognized after installation
 
 conda create --name my-app flask sqlalchemy
 conda create --name my-app pip
