@@ -8,6 +8,7 @@ git --version
 git config --global user.name "User Name"
 git config --global user.email "user@name.com"
 git config --list
+git config --global core.editor "vim"
 ```
 
 ## To get help:
